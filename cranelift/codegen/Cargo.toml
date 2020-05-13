@@ -66,6 +66,7 @@ arm64 = []
 riscv = []
 s390x = []
 arm32 = [] # Work-in-progress codegen backend for ARM.
+mips64 = []
 
 # Stub feature that does nothing, for Cargo-features compatibility: the new
 # backend is the default now.
@@ -79,7 +80,8 @@ all-arch = [
     "x86",
     "arm64",
     "riscv",
-    "s390x"
+    "s390x",
+    "mips64"
 ]
 
 # For dependent crates that want to serialize some parts of cranelift

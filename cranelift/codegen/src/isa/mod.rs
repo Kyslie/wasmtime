@@ -93,6 +93,9 @@ use legacy::x86;
 #[cfg(feature = "riscv")]
 use legacy::riscv;
 
+#[cfg(feature = "mips64")]
+mod mips64;
+
 pub mod unwind;
 
 mod call_conv;
@@ -163,6 +166,7 @@ pub fn lookup_variant(triple: Triple, variant: BackendVariant) -> Result<Builder
         (Architecture::Arm { .. }, _) => isa_builder!(arm32, (feature = "arm32"), triple),
         (Architecture::Aarch64 { .. }, _) => isa_builder!(aarch64, (feature = "arm64"), triple),
         (Architecture::S390x { .. }, _) => isa_builder!(s390x, (feature = "s390x"), triple),
+        (Architecture::Mips64 { .. }, _) => isa_builder!(mips64, (feature = "mips64"), triple),
         _ => Err(LookupError::Unsupported),
     }
 }
